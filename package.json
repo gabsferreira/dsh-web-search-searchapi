@@ -1,0 +1,54 @@
+{
+  "name": "dsh-web-search-searchapi",
+  "version": "0.1.0",
+  "description": "SearchApi search provider for the DeepSeek Harness web seam: web_search returns Google results as structured sources",
+  "license": "MIT",
+  "author": "Gabs Ferreira (SearchApi)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabsferreira/dsh-web-search-searchapi.git"
+  },
+  "homepage": "https://github.com/gabsferreira/dsh-web-search-searchapi#readme",
+  "bugs": "https://github.com/gabsferreira/dsh-web-search-searchapi/issues",
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "deepseek-harness",
+    "web-search",
+    "searchapi",
+    "google"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=20.3"
+  },
+  "scripts": {
+    "test": "node --test test/unit/*.test.mjs test/contract/*.test.mjs",
+    "test:unit": "node --test test/unit/*.test.mjs",
+    "test:contract": "node --test test/contract/*.test.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-web": "*"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-web": "0.2.2-rc.1"
+  }
+}

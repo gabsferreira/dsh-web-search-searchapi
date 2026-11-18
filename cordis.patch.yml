@@ -1,0 +1,18 @@
+# dsh-web-search-searchapi bundle layer: route web_search to SearchApi.
+#
+# dsh-base pins the web seam to its own DeepSeek search provider, so this
+# layer re-pins it to the `searchapi` provider this package registers. A patch
+# replaces the row's whole config, so fetchProvider keeps dsh-base's `http`.
+# The API key comes from the credentials service or $SEARCHAPI_API_KEY (or an
+# `apiKey` you set in your own profile patch); never put the key in this file.
+
+- id: web
+  config:
+    searchProvider: searchapi
+    fetchProvider: http
+
+- insert:
+    - id: web-search-searchapi
+      name: dsh-web-search-searchapi
+      config:
+        apiKeyEnv: SEARCHAPI_API_KEY
